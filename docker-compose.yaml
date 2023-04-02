@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  backend:
+    build: .
+    command: uvicorn backend.main:app --host 0.0.0.0
+    volumes:
+      - .:/app
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file:
+      - backend/.env
+    # depends_on:
+    #   - mongodb
+    networks:
+      - backend
+  # app:
+  #   container_name: app
+  #   image: app
+  #   # environment:
+  #   #   - MONGODB_URL=mongodb://mongodb/test_database
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     -"8000:8000"
+  #   networks:
+  #     - backend
+
+  # mongo_db:
+  #   image: mongo
+  #   container_name: "mongo_db"
+  #   ports:
+  #     - "27017:27017"
+  #   networks:
+  #     - backend
+
+networks:
+  backend:
+    driver: bridge
