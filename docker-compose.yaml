@@ -2,18 +2,20 @@ version: '3.7'
 
 services:
   backend:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      no_cache: true
     command: uvicorn backend.main:app --host 0.0.0.0
     volumes:
       - .:/app
     ports:
-      - "127.0.0.1:8000:8000"
+      - "8008:8000"
     env_file:
       - backend/.env
-    # depends_on:
-    #   - mongodb
     networks:
       - backend
+    # tty: true
   # app:
   #   container_name: app
   #   image: app
@@ -23,7 +25,7 @@ services:
   #     context: .
   #     dockerfile: Dockerfile
   #   ports:
-  #     -"8000:8000"
+  #     - "8080:8080"
   #   networks:
   #     - backend
 
@@ -34,6 +36,8 @@ services:
   #     - "27017:27017"
   #   networks:
   #     - backend
+
+
 
 networks:
   backend:
