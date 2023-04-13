@@ -2,7 +2,8 @@ import motor.motor_asyncio
 import uvicorn
 from motor.motor_asyncio import AsyncIOMotorClient
 from fastapi import FastAPI, APIRouter
-from backend.externalAPI import get_data
+from backend.app.externalAPI import WorldPopRequests
+from backend.utility.coordinates import Point, Segment
 from time import sleep
 from envparse import Env
 
@@ -22,7 +23,11 @@ async def ping():
 
 @router.get("/worldpop")
 async def worldpop_test():
-    return get_data()
+    wpr = WorldPopRequests()
+    grid = wpr.create_grid(Segment([Point(41.2, -74.5), Point(41.2, -72.7),
+                            Point(40.2, -74.5), Point(40.2, -72.7)]))
+    # return wpr.form_geojson(grid)
+    return len(grid.chunks)
 
 
 app.include_router(router)

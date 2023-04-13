@@ -1,1 +1,0 @@
-from backend.externalAPI.worldpop import get_data

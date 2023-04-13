@@ -71,10 +71,8 @@ def sample_segment():
 
 def test_grid_initialization(sample_segment):
     res = 0.5
-    grid = Grid(sample_segment, res)
-    assert grid.resolution == res
+    grid = Grid(sample_segment)
     assert len(grid.points) == 4
-    assert isinstance(grid.center, Point)
 
 def test_split_by_res(sample_segment):
     res = 99

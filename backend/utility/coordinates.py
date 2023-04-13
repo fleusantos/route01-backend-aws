@@ -18,10 +18,17 @@ class Point:
 
 class Segment:
     def __init__(self, points = [Point]) -> None:
-        if len(points) != 4:
-            raise ValueError("Incorrect number of points as argument!")
-        
         self.points = points
+        self.center = self.get_center()
+        self.population = 0
+
+    def get_center(self):
+        min_x = min([p.x for p in self.points])
+        max_x = max([p.x for p in self.points])
+        min_y = min([p.y for p in self.points])
+        max_y = max([p.y for p in self.points])
+        
+        return Point((min_x + max_x)/2, (min_y + max_y)/2)
 
     def get(self):
         return self.points
@@ -37,20 +44,14 @@ class Segment:
     
 
 class Grid:
-    def __init__(self, seg:Segment, resolution:float) -> None:
+    def __init__(self, seg:Segment) -> None:
         self.points = seg.points
-        self.resolution = resolution
-        self.center = self.get_center()
-
-    def get_center(self):
-        min_x = min([p.x for p in self.points])
-        max_x = max([p.x for p in self.points])
-        min_y = min([p.y for p in self.points])
-        max_y = max([p.y for p in self.points])
-        
-        return Point((min_x + max_x)/2, (min_y + max_y)/2)
+        self.resolution = 0
+        self.chunks = None
 
     def split_by_res(self, resolution):
+        self.resolution = resolution
+
         min_x = min([p.x for p in self.points])
         max_x = max([p.x for p in self.points])
         min_y = min([p.y for p in self.points])
@@ -72,6 +73,7 @@ class Grid:
 
                 chunks.append(chunk)
 
+        self.chunks = chunks
         return chunks
 
 
