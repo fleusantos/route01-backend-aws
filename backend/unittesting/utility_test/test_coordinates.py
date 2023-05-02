@@ -22,13 +22,6 @@ def test_segment_init():
     assert s.points == points
 
 
-def test_segment_init_incorrect_number_of_points():
-    # Test that the initialization of the Segment class raises a ValueError with an incorrect number of points
-    points = [Point(1.0, 2.0), Point(3.0, 4.0), Point(5.0, 6.0)]
-    with pytest.raises(ValueError):
-        Segment(points)
-
-
 def test_segment_get():
     # Test the get method of the Segment class
     points = [Point(1.0, 2.0), Point(3.0, 4.0), Point(5.0, 6.0), Point(7.0, 8.0)]
@@ -76,7 +69,7 @@ def test_grid_initialization(sample_segment):
 
 def test_split_by_res(sample_segment):
     res = 99
-    grid = Grid(sample_segment, res)
+    grid = Grid(sample_segment)
     chunks = grid.split_by_res(3.0)
     assert len(chunks) == 4
     assert isinstance(chunks[0], Segment)

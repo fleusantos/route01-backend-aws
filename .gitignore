@@ -9,3 +9,4 @@ venv/
 *.sublime-workspace
 __pycache__
 usa_ppp_2020.tif
+NYPD_Arrests_Data__Historic_.csv
