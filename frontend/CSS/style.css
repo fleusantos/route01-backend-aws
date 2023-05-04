@@ -1,0 +1,48 @@
+/* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+ #map {
+    height: 100%;
+  }
+  
+  /* 
+   * Optional: Makes the sample page fill the window. 
+   */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background-color: black;
+  }
+  
+  nav ul {
+    margin-right: 20px;
+    padding: 0;
+    list-style: none;
+    text-align: right;
+  }
+  
+  nav ul li {
+    display: inline-block;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav ul li a {
+    display: block;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  nav ul li a:hover {
+    background-color: #333;
+  }
+  
