@@ -1,5 +1,6 @@
 import geojson
 
+
 class Point:
     def __init__(self, x, y) -> None:
         """
@@ -22,7 +23,7 @@ class Segment:
         self.center = self.get_center()
         self.population = 0
 
-    def get_center(self):
+    def __get_center(self):
         min_x = min([p.x for p in self.points])
         max_x = max([p.x for p in self.points])
         min_y = min([p.y for p in self.points])
@@ -47,7 +48,7 @@ class Grid:
     def __init__(self, seg:Segment) -> None:
         self.points = seg.points
         self.resolution = 0
-        self.chunks = None
+        self.chunks = []
 
     def split_by_res(self, resolution):
         self.resolution = resolution
@@ -76,4 +77,7 @@ class Grid:
         self.chunks = chunks
         return chunks
 
+    def get_centers(self):
+        centers = [c.center for c in self.chunks]
+        return centers
 

@@ -9,7 +9,7 @@ class WorldPopRequests:
         if key is not None:
             self.api_key = key
 
-    def create_grid(self, seg:Segment, res_m=100):
+    def create_grid(self, seg:Segment, res_m=1000):
         res = res_m/1000/111
         grid = Grid(seg)
         grid.split_by_res(res)
