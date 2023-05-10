@@ -1,2 +1,2 @@
-from backend.utility.coordinates import Point, Segment, Grid
+from app.backend.utility.coordinates import Point, Segment, Grid
 

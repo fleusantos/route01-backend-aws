@@ -2,8 +2,8 @@ import motor.motor_asyncio
 import uvicorn
 from motor.motor_asyncio import AsyncIOMotorClient
 from fastapi import FastAPI, APIRouter
-from backend.app.externalAPI import WorldPopRequests
-from backend.utility.coordinates import Point, Segment
+from app.backend.app.externalAPI import WorldPopRequests
+from app.backend.utility.coordinates import Point, Segment
 from time import sleep
 from envparse import Env
 

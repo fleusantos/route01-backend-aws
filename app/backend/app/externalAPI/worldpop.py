@@ -1,7 +1,7 @@
 import requests
 import geojson
 
-from backend.utility.coordinates import Point, Segment, Grid
+from app.backend.utility.coordinates import Point, Segment, Grid
 
 # Define the area of interest as a bounding box
 class WorldPopRequests:
