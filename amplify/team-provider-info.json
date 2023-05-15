@@ -12,8 +12,9 @@
       "AmplifyAppId": "d3d4kky5khtwtb"
     },
     "categories": {
-      "function": {
-        "saferoutePing": {}
+      "auth": {
+        "saferoute60bd68c1": {},
+        "saferouted014f146": {}
       }
     }
   }
