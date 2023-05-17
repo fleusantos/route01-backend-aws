@@ -4,17 +4,31 @@ import Map from './map';
 import About from './about';
 import UsedData from './used_data';
 
+const RedirectButton = () => {  
+    const handleRedirect = () => {
+      history.push('/map');
+    };
+    return (
+        <button onClick={handleRedirect}>
+          Go to Map
+        </button>
+    );
+}
+
 function App() {
     return (
       <Router>
-        <Routes>
-          <Route path="/map" element={<Map />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/used_data" element={<UsedData />} />
-        </Routes>
-      </Router> 
+        <div>
+          <Routes>
+            <Route path="/map" element={<Map />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/used_data" element={<UsedData />} />
+          </Routes>
+          <RedirectButton />
+        </div>
+      </Router>
     );
-    
-  }
+}
+
 
 export default App; 
