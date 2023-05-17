@@ -3,6 +3,9 @@ import './CSS/style.css';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { Loader } from "@googlemaps/js-api-loader"
 import { style } from './JS/map_setup';
+import { Link, Switch, Route } from 'react-router-dom';
+import About from './about'; 
+import UsedData from './used_data'; 
 
 const MapComponent = () => {
   return (
@@ -37,20 +40,25 @@ const App = () => {
         <nav>
           <ul>
             <li style={{ textAlign: 'left', float: 'left' }}>
-              <a href="./map.js">SAFEROUTE</a>
+              <a href="./map">SAFEROUTE</a>
             </li>
             <li className="navHover" style={{ textAlign: 'right' }}>
-              <a href="./map.js">Map</a>
+              <a href="./map">Map</a>
             </li>
             <li className="navHover" style={{ textAlign: 'right' }}>
-              <a className="navHover" href="./about.js">About</a>
+              <a className="navHover" href="./about">About</a>
             </li>
             <li className="navHover" style={{ textAlign: 'right' }}>
-              <a href="./used_data.js">Used data</a>
+              <a href="./used_data">Used data</a>
             </li>
           </ul>
         </nav>
       </header>
+      <Switch>
+        <Route path="/map" component={Map} />
+        <Route path="/about" component={About} />
+        <Route path="/used_data" component={UsedData} />
+      </Switch>
       <div id="map"></div>
       <MapComponent />
     </div>
