@@ -1,11 +1,7 @@
 import React from 'react';
 import './CSS/style.css';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import { Loader } from "@googlemaps/js-api-loader"
 import { style } from './JS/map_setup';
-import { Link, Switch, Route , Routes} from 'react-router-dom';
-import About from './about'; 
-import UsedData from './used_data'; 
 
 const MapComponent = () => {
   return (
@@ -33,7 +29,7 @@ const MapComponent = () => {
   );
 };
 
-const App = () => {
+const Map = () => {
   return (
     <div>
       <header>
@@ -54,15 +50,10 @@ const App = () => {
           </ul>
         </nav>
       </header>
-      <Routes>
-        <Route path="/map" component={Map} />
-        <Route path="/about" component={About} />
-        <Route path="/used_data" component={UsedData} />
-      </Routes>
       <div id="map"></div>
       <MapComponent />
     </div>
   );
 };
 
-export default App; 
+export default Map; 
