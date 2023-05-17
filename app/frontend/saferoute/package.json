@@ -1,7 +1,8 @@
 {
   "name": "saferoute",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "map",
+  "proxy": "http://localhost:3000",
   "private": true,
   "dependencies": {
     "@aws-amplify/ui-vue": "^3.1.15",
