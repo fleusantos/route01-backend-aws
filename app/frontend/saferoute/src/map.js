@@ -16,7 +16,7 @@ const MapComponent = () => {
     mapRef.current = undefined
   }, [])
 
-  return <div className={css.map}>
+  return <div>
     <GoogleMap
       mapContainerStyle={{
         width: '100%',
