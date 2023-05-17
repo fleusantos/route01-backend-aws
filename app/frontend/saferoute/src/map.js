@@ -1,15 +1,46 @@
 import React from 'react';
-import './CSS/style.css';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, useJsApiLoader } from '@react-google-maps/api';
 import { style } from './JS/map_setup';
+import css from './CSS/style.css';
+
+const API_KEY = process.env.REACT_APP_API_KEY
 
 const MapComponent = () => {
-  return (
-    <LoadScript
-      googleMapsApiKey="AIzaSyCtrrjLaFynd17T3RxwEwnf-HIkrxXw2yk"
-      version="weekly"
+  const mapRef = React.useRef(undefined) 
+
+  const onLoad = React.useCallback(function callback(map) {
+    mapRef.current = map
+  }, [])
+
+  const onUnmount = React.useCallback(function callback(map) {
+    mapRef.current = undefined
+  }, [])
+
+  return <div className={css.map}>
+    <GoogleMap
+      mapContainerStyle={{
+        width: '100%',
+        height: '100%'
+      }}
+      center={{ lat: 40.7, lng: -74 }}
+      zoom={10}
+      disableDefaultUI = {true}
+      styles = {style}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+      restriction = {{
+        latLngBounds: {
+          north: 41.3,
+          south: 40,
+          east: -72,
+          west: -76,
+        }
+      }}
     >
-      <GoogleMap
+    { /* Child components, such as markers, info windows, etc. */ }
+    <></>
+    </GoogleMap>
+      {/* <GoogleMap
         id="map"
         center={{ lat: 40.7, lng: -74 }}
         zoom={10}
@@ -24,12 +55,15 @@ const MapComponent = () => {
             west: -76,
           }
         }}
-      />
-    </LoadScript>
-  );
+      /> */}
+  </div>
 };
 
 const Map = () => {
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: API_KEY
+  })
   return (
     <div>
       <header>
@@ -50,8 +84,7 @@ const Map = () => {
           </ul>
         </nav>
       </header>
-      <div id="map"></div>
-      <MapComponent />
+      {isLoaded ? <MapComponent />: <h2>LOADING MAP</h2>}
     </div>
   );
 };

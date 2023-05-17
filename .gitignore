@@ -12,6 +12,7 @@ usa_ppp_2020.tif
 NYPD_Arrests_Data__Historic_.csv
 .tif
 .csv
+.env
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
