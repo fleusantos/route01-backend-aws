@@ -8,16 +8,16 @@ const About = () => {
                 <nav>
                     <ul>
                         <li style={{ textAlign: 'left', float: 'left' }}>
-                        <a href="./index.js">SAFEROUTE</a>
+                            <a href="./map">SAFEROUTE</a>
                         </li>
                         <li className="navHover" style={{ textAlign: 'right' }}>
-                        <a href="./index.js">Map</a>
+                            <a href="./map">Map</a>
                         </li>
                         <li className="navHover" style={{ textAlign: 'right' }}>
-                        <a className="navHover" href="./about.js">About</a>
+                            <a className="navHover" href="./about">About</a>
                         </li>
                         <li className="navHover" style={{ textAlign: 'right' }}>
-                        <a href="./used_data.js">Used data</a>
+                            <a href="./used_data">Used data</a>
                         </li>
                     </ul>
                 </nav>
