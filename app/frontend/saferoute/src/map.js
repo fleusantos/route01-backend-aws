@@ -3,7 +3,7 @@ import './CSS/style.css';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { Loader } from "@googlemaps/js-api-loader"
 import { style } from './JS/map_setup';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link, Switch, Route , Routes} from 'react-router-dom';
 import About from './about'; 
 import UsedData from './used_data'; 
 
