@@ -54,11 +54,11 @@ const App = () => {
           </ul>
         </nav>
       </header>
-      <Switch>
+      <Routes>
         <Route path="/map" component={Map} />
         <Route path="/about" component={About} />
         <Route path="/used_data" component={UsedData} />
-      </Switch>
+      </Routes>
       <div id="map"></div>
       <MapComponent />
     </div>
