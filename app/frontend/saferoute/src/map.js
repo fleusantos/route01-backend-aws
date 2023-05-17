@@ -4,7 +4,7 @@ import { style } from './JS/map_setup';
 import css from './CSS/style.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY
-
+console.log(API_KEY)
 const MapComponent = () => {
   const mapRef = React.useRef(undefined) 
 
