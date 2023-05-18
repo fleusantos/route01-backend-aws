@@ -1,7 +1,7 @@
 import React from 'react';
 import { GoogleMap, LoadScript, useJsApiLoader } from '@react-google-maps/api';
 import { style } from './JS/map_setup';
-import css from './css/style.css';
+// import css from './css/style.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY
 console.log(API_KEY)
