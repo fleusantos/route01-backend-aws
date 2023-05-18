@@ -1,5 +1,5 @@
 import React from 'react';
-import './CSS/style.css';
+import './css/style.css';
 
 const UsedData = () => {
     return (
@@ -8,16 +8,16 @@ const UsedData = () => {
                 <nav>
                     <ul>
                         <li style={{ textAlign: 'left', float: 'left' }}>
-                        <a href="./index.js">SAFEROUTE</a>
+                        <a href="./map">SAFEROUTE</a>
                         </li>
                         <li className="navHover" style={{ textAlign: 'right' }}>
-                        <a href="./index.js">Map</a>
+                        <a href="./map">Map</a>
                         </li>
                         <li className="navHover" style={{ textAlign: 'right' }}>
-                        <a href="./about.js">About</a>
+                        <a href="./about">About</a>
                         </li>
                         <li className="navHover" style={{ textAlign: 'right' }}>
-                        <a className="navHover" href="./used_data.js">Used data</a>
+                        <a className="navHover" href="./used_data">Used data</a>
                         </li>
                     </ul>
                 </nav>
