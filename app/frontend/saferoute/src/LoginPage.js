@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Container, Grid, Typography } from '@mui/material';
 // import './css/LoginPage.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { Amplify, Auth, Hub } from 'aws-amplify';
+import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
 
 const LoginPage = () => {
   const navigate = useNavigate();
