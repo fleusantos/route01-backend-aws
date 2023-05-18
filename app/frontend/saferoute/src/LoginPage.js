@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Container, Grid, Typography } from '@mui/material';
 // import './css/LoginPage.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Amplify, Auth, Hub } from 'aws-amplify';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -9,6 +10,30 @@ const LoginPage = () => {
   const goToMapButtonClick = () => {
     navigate('/map');
   };
+
+  const [user, setUser] = useState(null);
+    const [customState, setCustomState] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = Hub.listen("auth", ({ payload: { event, data } }) => {
+        switch (event) {
+            case "signIn":
+            setUser(data);
+            break;
+            case "signOut":
+            setUser(null);
+            break;
+            case "customOAuthState":
+            setCustomState(data);
+        }
+        });
+
+    Auth.currentAuthenticatedUser()
+      .then(currentUser => setUser(currentUser))
+      .catch(() => console.log("Not signed in"));
+
+    return unsubscribe;
+  }, []);
 
   return (
     <div className="login-page">
@@ -33,7 +58,7 @@ const LoginPage = () => {
             </Typography>
           </Grid>
           <Grid item>
-          <Button variant="contained" color="primary" size="large" onClick={goToMapButtonClick}>
+          <Button variant="contained" color="primary" size="large" onClick={() => Auth.federatedSignIn({provider: CognitoHostedUIIdentityProvider.Google })}>
               Go to Map
             </Button>
           </Grid>

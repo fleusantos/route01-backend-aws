@@ -4,6 +4,11 @@ import Map from './map';
 import About from './about';
 import UsedData from './used_data';
 import LoginPage from './LoginPage';
+import { Amplify, Auth, Hub } from 'aws-amplify';
+import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
+import awsConfig from './aws-exports';
+
+Amplify.configure(awsConfig);
 
 
 function App() {
