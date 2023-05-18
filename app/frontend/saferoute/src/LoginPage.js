@@ -49,7 +49,7 @@ const LoginPage = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <Button variant="contained" color="primary" size="large" startIcon={<img src="./google_logo.png" width={"30px"} height={"30px"} alt="Google Icon" />}>
+            <Button variant="contained" color="primary" size="large" startIcon={<img src="./google_logo.png" width={"30px"} height={"30px"} alt="Google Icon" />} onClick={() => Auth.federatedSignIn({provider: CognitoHostedUIIdentityProvider.Google })}>
               Sign in with Google
             </Button>
           </Grid>
@@ -59,7 +59,7 @@ const LoginPage = () => {
             </Typography>
           </Grid>
           <Grid item>
-          <Button variant="contained" color="primary" size="large" onClick={() => Auth.federatedSignIn({provider: CognitoHostedUIIdentityProvider.Google })}>
+          <Button variant="contained" color="primary" size="large" onClick={goToMapButtonClick}>
               Go to Map
             </Button>
           </Grid>
