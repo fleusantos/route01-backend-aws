@@ -6,9 +6,9 @@ import UsedData from './used_data';
 import LoginPage from './LoginPage';
 import { Amplify, Auth, Hub } from 'aws-amplify';
 import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
-// import awsconfig from './aws-exports';s
+import awsconfig from './aws-exports';
 
-// Amplify.configure(awsConfig);
+Amplify.configure(awsConfig);
 
 
 function App() {
