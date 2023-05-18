@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Grid, Typography } from '@mui/material';
-import './css/LoginPage.css';
+import 'src/css/LoginPage.css';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
