@@ -5,11 +5,11 @@ import About from './about';
 import UsedData from './used_data';
 
 const RedirectButton = () => {  
-    const handleRedirect = () => {
-      history.push('/map');
+    const handleClick = () => {
+        navigate('/map');
     };
     return (
-        <button onClick={handleRedirect}>
+        <button onClick={handleClick}>
           Go to Map
         </button>
     );
