@@ -59,7 +59,7 @@ const LoginPage = () => {
             </Typography>
           </Grid>
           <Grid item>
-          <Button variant="contained" color="primary" size="large" onClick={goToMapButtonClick}>
+            <Button variant="contained" color="primary" size="large" onClick={goToMapButtonClick}>
               Go to Map
             </Button>
           </Grid>

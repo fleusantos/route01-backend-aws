@@ -5,24 +5,35 @@ import About from './about';
 import UsedData from './used_data';
 import LoginPage from './LoginPage';
 import { Amplify, Auth, Hub } from 'aws-amplify';
-import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
 import awsConfig from './aws-exports';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 Amplify.configure(awsConfig);
 
+function App({ isPassedToWithAuthenticator, signOut, user }) {
+  if (!isPassedToWithAuthenticator) {
+    throw new Error(`isPassedToWithAuthenticator was not provided`);
+  }
 
-function App() {
-    return (
-      <Router>
-          <Routes>
-            <Route path="/" element={<LoginPage />} />
-            <Route path="/map" element={<Map />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/used_data" element={<UsedData />} />
-          </Routes>
-      </Router>
-    );
+  return (
+    <Router>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/map" element={<Map />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/used_data" element={<UsedData />} />
+        </Routes>
+    </Router>
+  );
 }
 
+export default withAuthenticator(App);
 
-export default App; 
+export async function getStaticProps() {
+  return {
+    props: {
+      isPassedToWithAuthenticator: true,
+    },
+  };
+}
