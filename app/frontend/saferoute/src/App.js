@@ -15,7 +15,7 @@ function App({ signOut, user }) {
   return (
     <Router>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<Map />} />
           <Route path="/map" element={<Map />} />
           <Route path="/about" element={<About />} />
           <Route path="/used_data" element={<UsedData />} />
