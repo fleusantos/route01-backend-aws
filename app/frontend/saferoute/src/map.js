@@ -1,8 +1,8 @@
 import React from 'react';
 import { GoogleMap, LoadScript, useJsApiLoader } from '@react-google-maps/api';
 import { style } from './JS/map_setup';
-import {withAuthenticator } from '@aws-amplify/ui-react';
-import css from '/css/style.css';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import css from 'css/style.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -18,7 +18,7 @@ const MapComponent = () => {
     mapRef.current = undefined
   }, [])
 
-  return <div>
+  return <div className={css.map}>
     <GoogleMap
       mapContainerStyle={{
         width: '100%',

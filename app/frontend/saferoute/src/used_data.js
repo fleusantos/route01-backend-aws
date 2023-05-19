@@ -1,5 +1,6 @@
 import React from 'react';
-// import './css/style.css';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import 'css/style.css';
 
 const UsedData = () => {
     return (
@@ -37,4 +38,6 @@ const UsedData = () => {
     );
 };
 
-export default UsedData;
+export default withAuthenticator(UsedData, {
+    socialProviders: ['google']
+}); 
