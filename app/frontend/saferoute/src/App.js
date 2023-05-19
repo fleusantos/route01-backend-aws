@@ -17,14 +17,16 @@ function App({ isPassedToWithAuthenticator, signOut, user }) {
   }
 
   return (
-    <Router>
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/used_data" element={<UsedData />} />
-        </Routes>
-    </Router>
+    <Authenticator>
+      <Router>
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/map" element={<Map />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/used_data" element={<UsedData />} />
+          </Routes>
+      </Router>
+    </Authenticator>
   );
 }
 
