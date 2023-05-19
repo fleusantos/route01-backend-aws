@@ -5,7 +5,8 @@ import {withAuthenticator } from '@aws-amplify/ui-react';
 // import css from './css/style.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY
-console.log(API_KEY)
+
+
 const MapComponent = () => {
   const mapRef = React.useRef(undefined) 
 
@@ -90,4 +91,6 @@ const Map = ({ signOut, user }) => {
   );
 };
 
-export default withAuthenticator(Map); 
+export default withAuthenticator(Map{
+  socialProviders: ['google']
+}); 
