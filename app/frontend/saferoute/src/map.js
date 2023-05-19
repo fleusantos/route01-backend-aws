@@ -91,6 +91,6 @@ const Map = ({ signOut, user }) => {
   );
 };
 
-export default withAuthenticator(Map{
+export default withAuthenticator(Map, {
   socialProviders: ['google']
 }); 
