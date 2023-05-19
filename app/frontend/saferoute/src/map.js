@@ -3,6 +3,7 @@ import { GoogleMap, LoadScript, useJsApiLoader } from '@react-google-maps/api';
 import { style } from './JS/map_setup';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import css from 'css/style.css';
+// import './css/login.css'
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -82,6 +83,9 @@ const Map = ({ signOut, user }) => {
             </li>
             <li className="navHover" style={{ textAlign: 'right' }}>
               <a href="./used_data">Used data</a>
+            </li>
+            <li className="navHover" style={{ textAlign: 'right' }}>
+              <a onClick={signOut} >SIGNOUT</a>
             </li>
           </ul>
         </nav>
