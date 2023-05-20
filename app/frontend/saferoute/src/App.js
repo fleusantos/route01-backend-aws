@@ -5,9 +5,9 @@ import About from './about';
 import UsedData from './used_data';
 import { Amplify} from 'aws-amplify';
 import awsConfig from './aws-exports';
-import {withAuthenticator, ThemeProvider, Theme  } from '@aws-amplify/ui-react';
+import { withAuthenticator, ThemeProvider, Theme } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css'; 
-import 'src/css/login.css'
+import './css/login.css'
 
 Amplify.configure(awsConfig);
 
