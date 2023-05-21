@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, LoadScript, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, useJsApiLoader,  LoadScript, Marker  } from '@react-google-maps/api';
 import { mapStyle, pointBounds } from './JS/map_setup';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import css from './css/style.css';
