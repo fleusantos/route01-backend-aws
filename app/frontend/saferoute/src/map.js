@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoogleMap, LoadScript, useJsApiLoader } from '@react-google-maps/api';
-import { style } from './JS/map_setup';
+import { mapStyle } from './JS/map_setup';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import css from 'css/style.css';
 // import './css/login.css'
@@ -28,7 +28,7 @@ const MapComponent = () => {
       center={{ lat: 40.7, lng: -74 }}
       zoom={10}
       disableDefaultUI = {true}
-      styles = {style}
+      styles = {mapStyle}
       onLoad={onLoad}
       onUnmount={onUnmount}
       restriction = {{
