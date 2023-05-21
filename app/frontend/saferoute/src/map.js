@@ -29,6 +29,7 @@ const defaultOptions = {
       west: -76,
     }
   },
+  gestureHandling: 'greedy',
   styles: mapStyle
 };
 
@@ -53,7 +54,7 @@ const MapComponent = () => {
       onUnmount={onUnmount}
     >
       {/* Add any additional components, like markers, here */}
-      <Marker position={defaultCenter} />
+      {/* <Marker position={defaultCenter} /> */}
     </GoogleMap>
   );
 };
