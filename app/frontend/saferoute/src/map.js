@@ -28,11 +28,11 @@ const MapComponent = () => {
       }}
       center={{ lat: 40.7, lng: -74 }}
       zoom={10}
-      disableDefaultUI = {true}
-      styles = {mapStyle}
+      disableDefaultUI={true}
+      styles={mapStyle}
       onLoad={onLoad}
       onUnmount={onUnmount}
-      restriction = {{
+      restriction={{
         latLngBounds: {
           north: 41.3,
           south: 40,
