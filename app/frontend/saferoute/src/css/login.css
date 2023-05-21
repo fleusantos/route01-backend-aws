@@ -1,4 +1,5 @@
 :root, [data-amplify-authenticator] {
+    /* --amplify-components-authenticator-router-background-color:	var(--amplify-colors-background-primary) */
     --amplify-colors-background-primary: var(--amplify-colors-orange-90);
     --amplify-colors-background-secondary: var(--amplify-colors-orange-100);
     --amplify-colors-brand-primary-10: var(--amplify-colors-orange-100);

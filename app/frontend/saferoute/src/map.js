@@ -28,7 +28,7 @@ const MapComponent = () => {
       center={{ lat: 40.7, lng: -74 }}
       zoom={10}
       disableDefaultUI = {true}
-      styles = {style}
+      // styles = {style}
       onLoad={onLoad}
       onUnmount={onUnmount}
       restriction = {{
