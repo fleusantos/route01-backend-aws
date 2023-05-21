@@ -7,7 +7,6 @@ import css from './css/style.css';
 const API_KEY = process.env.REACT_APP_API_KEY
 
 
-
 const MapComponent = () => {
   const [map, setMap] = React.useState(null);
 
@@ -60,7 +59,7 @@ const Map = ({ signOut, user }) => {
         </nav>
       </header>
       {isLoaded ? (
-        <LoadScript googleMapsApiKey={API_KEY}>
+        <LoadScript googleMapsApiKey={API_KEY} language="en">
           <MapComponent />
         </LoadScript>
       ) : (
