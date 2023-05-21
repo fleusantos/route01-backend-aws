@@ -26,10 +26,10 @@ const MapComponent = () => {
         width: '100vw',
         height: '100vh'
       }}
-      center={{ lat: 48.7, lng: -74 }}
+      center={{ lat: 40.7, lng: -74 }}
       zoom={10}
-      disableDefaultUI={true}
       styles={mapStyle}
+      disableDefaultUI={true}
       onLoad={onLoad}
       onUnmount={onUnmount}
       restriction={{
