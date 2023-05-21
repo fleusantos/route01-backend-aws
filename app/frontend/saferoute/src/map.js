@@ -1,38 +1,12 @@
 import React from 'react';
 import { GoogleMap, LoadScript, useJsApiLoader, Marker  } from '@react-google-maps/api';
-import { mapStyle} from './JS/map_setup';
+import { mapContainerStyle, defaultOptions, defaultCenter } from './JS/map_setup';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import css from './css/style.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
-console.log(mapStyle);
 
-
-const mapContainerStyle = {
-  width: '100vw',
-  height: '100vh'
-};
-
-const defaultCenter = {
-  lat: 40.7,
-  lng: -74
-};
-
-const defaultOptions = {
-  disableDefaultUI: true,
-  restriction: {
-    latLngBounds: {
-      north: 41.3,
-      south: 40,
-      east: -72,
-      west: -76,
-    }
-  },
-  gestureHandling: 'greedy',
-  styles: mapStyle,
-  language: 'en'
-};
 
 const MapComponent = () => {
   const [map, setMap] = React.useState(null);

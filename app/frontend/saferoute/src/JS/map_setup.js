@@ -136,3 +136,28 @@ export const mapStyle =
           ]
       } 
 ]
+
+const mapContainerStyle = {
+    width: '100vw',
+    height: '100vh'
+  };
+  
+  const defaultCenter = {
+    lat: 40.7,
+    lng: -74
+  };
+  
+  const defaultOptions = {
+    disableDefaultUI: true,
+    restriction: {
+      latLngBounds: {
+        north: 41.3,
+        south: 40,
+        east: -72,
+        west: -76,
+      }
+    },
+    gestureHandling: 'greedy',
+    styles: mapStyle,
+    language: 'en'
+  };
