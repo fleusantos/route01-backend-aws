@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoogleMap, LoadScript, useJsApiLoader, Marker  } from '@react-google-maps/api';
-import { mapStyle, pointBounds } from './JS/map_setup';
+import { mapStyle} from './JS/map_setup';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import css from './css/style.css';
 
@@ -29,7 +29,7 @@ const defaultOptions = {
       west: -76,
     }
   },
-  styles: {mapStyle}
+  styles: mapStyle
 };
 
 const MapComponent = () => {
