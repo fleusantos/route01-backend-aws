@@ -1,4 +1,4 @@
-const mapStyle = 
+export const mapStyle = 
 
   [
       {
@@ -137,5 +137,3 @@ const mapStyle =
           ]
       } 
   ]
-  
-export default mapStyle;

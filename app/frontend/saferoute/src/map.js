@@ -7,6 +7,7 @@ import css from 'css/style.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
+console.log(mapStyle);
 
 const MapComponent = () => {
   const mapRef = React.useRef(undefined) 
