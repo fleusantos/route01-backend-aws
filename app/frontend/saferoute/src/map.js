@@ -30,7 +30,8 @@ const defaultOptions = {
     }
   },
   gestureHandling: 'greedy',
-  styles: mapStyle
+  styles: mapStyle,
+  language: 'en'
 };
 
 const MapComponent = () => {
