@@ -5,7 +5,8 @@ import { withAuthenticator } from '@aws-amplify/ui-react';
 import css from 'css/style.css';
 // import './css/login.css'
 
-const API_KEY = process.env.REACT_APP_API_KEY
+const API_KEY = process.env.REACT_APP_API_KEY;
+var bounds = new this.props.google.maps.LatLngBounds();
 
 console.log(mapStyle);
 
