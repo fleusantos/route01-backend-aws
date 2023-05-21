@@ -22,8 +22,8 @@ const MapComponent = () => {
   return <div className={css.map}>
     <GoogleMap
       mapContainerStyle={{
-        width: '100%',
-        height: '100%'
+        width: '400px',
+        height: '400px'
       }}
       center={{ lat: 40.7, lng: -74 }}
       zoom={10}
@@ -40,25 +40,7 @@ const MapComponent = () => {
         }
       }}
     >
-    { /* Child components, such as markers, info windows, etc. */ }
-    <></>
     </GoogleMap>
-      {/* <GoogleMap
-        id="map"
-        center={{ lat: 40.7, lng: -74 }}
-        zoom={10}
-        disableDefaultUI = {true}
-        gestureHandling = 'greedy'
-        styles = {style}
-        restriction = {{
-          latLngBounds: {
-            north: 41.3,
-            south: 40,
-            east: -72,
-            west: -76,
-          }
-        }}
-      /> */}
   </div>
 };
 
