@@ -2,43 +2,60 @@ import React from 'react';
 import { GoogleMap, LoadScript, useJsApiLoader } from '@react-google-maps/api';
 import { mapStyle, pointBounds } from './JS/map_setup';
 import { withAuthenticator } from '@aws-amplify/ui-react';
-import css from 'css/style.css';
-// import './css/login.css'
+import css from './css/style.css';
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-var bounds = new this.props.google.maps.LatLngBounds();
+const API_KEY = process.env.REACT_APP_API_KEY
 
 console.log(mapStyle);
 
+
+const mapContainerStyle = {
+  width: '100vw',
+  height: '100vh'
+};
+
+const defaultCenter = {
+  lat: 40.7,
+  lng: -74
+};
+
+const defaultOptions = {
+  disableDefaultUI: true,
+  restriction: {
+    latLngBounds: {
+      north: 41.3,
+      south: 40,
+      east: -72,
+      west: -76,
+    }
+  },
+  styles: {mapStyle}
+};
+
 const MapComponent = () => {
-  const mapRef = React.useRef(undefined) 
+  const [map, setMap] = React.useState(null);
 
-  const onLoad = React.useCallback(function callback(map) {
-    mapRef.current = map
-  }, [])
+  const onLoad = React.useCallback(function callback(mapInstance) {
+    setMap(mapInstance);
+  }, []);
 
-  const onUnmount = React.useCallback(function callback(map) {
-    mapRef.current = undefined
-  }, [])
+  const onUnmount = React.useCallback(function callback() {
+    setMap(null);
+  }, []);
 
   return (
-    <div className={css.map}>
-      <GoogleMap
-        mapContainerStyle={{
-          width: '100vw',
-          height: '100vh'
-        }}
-        center={{ lat: 40.7, lng: -74 }}
-        zoom={10}
-        disableDefaultUI={true}
-        styles={mapStyle}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-        bounds={bounds}
-      ></GoogleMap>
-    </div>
+    <GoogleMap
+      mapContainerStyle={mapContainerStyle}
+      center={defaultCenter}
+      zoom={10}
+      options={defaultOptions}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+    >
+      {/* Add any additional components, like markers, here */}
+      <Marker position={defaultCenter} />
+    </GoogleMap>
   );
-  
 };
 
 const Map = ({ signOut, user }) => {

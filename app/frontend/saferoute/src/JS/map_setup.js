@@ -136,10 +136,3 @@ export const mapStyle =
           ]
       } 
 ]
-
-export const pointBounds =[
-    { lat: 41.3, lng: -72 },
-    { lat: 40, lng: -72 },
-    { lat: 41.3, lng: -76 },
-    { lat: 40, lng: -76 }
-]
