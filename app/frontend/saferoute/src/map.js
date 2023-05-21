@@ -34,7 +34,7 @@ const MapComponent = () => {
         styles={mapStyle}
         onLoad={onLoad}
         onUnmount={onUnmount}
-        bounds={pointBounds}
+        bounds={bounds}
       ></GoogleMap>
     </div>
   );
