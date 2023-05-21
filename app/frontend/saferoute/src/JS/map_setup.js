@@ -137,17 +137,17 @@ export const mapStyle =
       } 
 ]
 
-const mapContainerStyle = {
+export const mapContainerStyle = {
     width: '100vw',
     height: '100vh'
-  };
+};
   
-  const defaultCenter = {
+export const defaultCenter = {
     lat: 40.7,
     lng: -74
-  };
-  
-  const defaultOptions = {
+};
+
+export  const defaultOptions = {
     disableDefaultUI: true,
     restriction: {
       latLngBounds: {
@@ -160,4 +160,4 @@ const mapContainerStyle = {
     gestureHandling: 'greedy',
     styles: mapStyle,
     language: 'en'
-  };
+};
