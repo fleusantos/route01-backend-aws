@@ -59,10 +59,7 @@ const MapComponent = () => {
 };
 
 const Map = ({ signOut, user }) => {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: API_KEY
-  })
+  const isLoaded = !!API_KEY;
   return (
     <div>
       <header>
@@ -86,7 +83,13 @@ const Map = ({ signOut, user }) => {
           </ul>
         </nav>
       </header>
-      {isLoaded ? <MapComponent />: <h2>LOADING MAP</h2>}
+      {isLoaded ? (
+        <LoadScript googleMapsApiKey={API_KEY}>
+          <MapComponent />
+        </LoadScript>
+      ) : (
+        <h2>LOADING MAP</h2>
+      )}
     </div>
   );
 };
