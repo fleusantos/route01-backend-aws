@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoogleMap, LoadScript, useJsApiLoader } from '@react-google-maps/api';
-import { mapStyle } from './JS/map_setup';
+import { mapStyle, pointBounds } from './JS/map_setup';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import css from 'css/style.css';
 // import './css/login.css'
@@ -20,29 +20,24 @@ const MapComponent = () => {
     mapRef.current = undefined
   }, [])
 
-  return <div className={css.map}>
-    <GoogleMap
-      mapContainerStyle={{
-        width: '100vw',
-        height: '100vh'
-      }}
-      center={{ lat: 40.7, lng: -74 }}
-      zoom={10}
-      styles={mapStyle}
-      disableDefaultUI={true}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-      restriction={{
-        latLngBounds: {
-          north: 41.3,
-          south: 40,
-          east: -72,
-          west: -76,
-        }
-      }}
-    >
-    </GoogleMap>
-  </div>
+  return (
+    <div className={css.map}>
+      <GoogleMap
+        mapContainerStyle={{
+          width: '100vw',
+          height: '100vh'
+        }}
+        center={{ lat: 40.7, lng: -74 }}
+        zoom={10}
+        disableDefaultUI={true}
+        styles={mapStyle}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+        bounds={pointBounds}
+      ></GoogleMap>
+    </div>
+  );
+  
 };
 
 const Map = ({ signOut, user }) => {
