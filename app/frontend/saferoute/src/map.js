@@ -21,6 +21,10 @@ const MapComponent = () => {
 
   return <div className={css.map}>
     <GoogleMap
+      mapContainerStyle={{
+        width: '100vw',
+        height: '100vh'
+      }}
       center={{ lat: 40.7, lng: -74 }}
       zoom={10}
       disableDefaultUI = {true}
