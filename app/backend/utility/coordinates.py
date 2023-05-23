@@ -22,6 +22,7 @@ class Segment:
         self.points = points
         self.center = self.get_center()
         self.population = 0
+        self.income = 0
 
     def __get_center(self):
         min_x = min([p.x for p in self.points])
