@@ -31,6 +31,12 @@ class Segment:
         max_y = max([p.y for p in self.points])
         
         return Point((min_x + max_x)/2, (min_y + max_y)/2)
+    
+    def point_in_segment(self, point) -> bool:
+        polygon = self.get_polygon()
+        point_coords = (point.x, point.y)
+        
+        return polygon.contains(geojson.Point(point_coords))
 
     def get(self):
         return self.points
@@ -48,6 +54,7 @@ class Segment:
 class Grid:
     def __init__(self, seg:Segment) -> None:
         self.points = seg.points
+        self.seg = seg
         self.resolution = 0
         self.chunks = []
 
@@ -72,8 +79,9 @@ class Grid:
 
                 chunk = Segment([Point(chunk_min_x, chunk_min_y), Point(chunk_max_x, chunk_min_y), 
                          Point(chunk_max_x, chunk_max_y), Point(chunk_min_x, chunk_max_y)])
-
-                chunks.append(chunk)
+                
+                if self.seg.point_in_segment(chunk.center):
+                    chunks.append(chunk)
 
         self.chunks = chunks
         return chunks
