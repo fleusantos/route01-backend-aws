@@ -82,3 +82,10 @@ class Grid:
         centers = [c.center for c in self.chunks]
         return centers
 
+
+def create_grid(self, seg:Segment, res_m=1000):
+    res = res_m/1000/111
+    grid = Grid(seg)
+    grid.split_by_res(res)
+
+    return grid
