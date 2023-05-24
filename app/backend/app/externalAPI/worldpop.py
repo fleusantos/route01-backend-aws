@@ -18,5 +18,6 @@ class WorldPopRequests:
     def get_data(self, ):
         pass
         
-
+def load_from_file():
+    pass #TODO:
 

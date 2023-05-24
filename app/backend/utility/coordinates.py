@@ -16,8 +16,12 @@ class Point:
     def __str__(self) -> str:
         return f"Point x:{self.x} y:{self.y}"
     
+    def __hash__(self) -> int:
+        return hash(self.x, self.y)
+    
 
 class Segment:
+    # TODO: implement __hash__ and __eq__ functions (for why googele can class instance be used as a key?)
     def __init__(self, points = [Point]) -> None:
         self.points = points
         self.center = self.get_center()
@@ -48,6 +52,9 @@ class Segment:
     
     def get_feature(self):
         return geojson.Feature(geometry=self.get_polygon())
+    
+    def __hash__(self) -> int:
+        return self.center.__hash__()
     
 
 class Grid:
