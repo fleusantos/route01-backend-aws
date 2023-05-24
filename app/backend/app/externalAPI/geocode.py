@@ -19,27 +19,23 @@ class GeocodioRequests:
         load_dotenv()
         return os.getenv("GEOCODE_API_KEY")
 
+    async def reverse_geocode_async(self, grid:Grid):
+        url = f"https://api.geocod.io/v1.6/reverse"
 
-    # def create_grid(self, seg:Segment, res_m=1000):
-    #     res = res_m/1000/111.11
-    #     grid = Grid(seg)
-    #     grid.split_by_res(res)
-
-    #     return grid
-
-    # async def get_data(self, grid:Grid):
-    #     centers = grid.get_centers()
-    #     res = [] 
-
-    #     async with aiohttp.ClientSession() as session:
-    #         for p in centers:
-    #             pass
-        
-
-
-if __name__ == "__main__":
-    gr = GeocodioRequests()
-    address_sets = gr.client.reverse([
-        (35.9746000, -77.9658000)], fields = ["acs-economics"])
-    
-    print(address_sets)
+        async with aiohttp.ClientSession() as session:
+            for chunk in grid.chunks:
+                params = {
+                    "q": f"{chunk.center.x},{chunk.center.y}",
+                    "fields": "acs-economics",
+                    "api_key": self.__key
+                }
+                async with session.get(url, params=params) as response:
+                    result = await response.json()
+                    if result['results']:
+                        # check is for keyerror due to bad data.(value if exists else 0)
+                        income_list = [result['results'][i]['fields']['acs']['economics']['Median household income']['Total']['value'] 
+                                    if result['results'][i]['fields']['acs']['economics']['Median household income'].get('Total', 0) 
+                                    else 0 for i in range(len(result['results']))]
+                        income = sum(list(filter(lambda x: x != 0, income_list)))/len(income_list)
+                        chunk.data['income'] = income
+            return grid
