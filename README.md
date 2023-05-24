@@ -1,4 +1,4 @@
-# SafeRoute
+# SafeRoute (in progress)
 
 SafeRoute is a web application that overlays a map with a heatmap of dangerousness levels based on crime data. The application is built using FastAPI on the backend and HTML/CSS on frontend technologies, and runs in a Docker container. 
 Deployed on https://main.d3d4kky5khtwtb.amplifyapp.com
